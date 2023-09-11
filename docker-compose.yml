@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    image: mongo
+    container_name: catalog_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodbdata:/data/db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "pass+12345"
+
+volumes:
+  mongodbdata:
