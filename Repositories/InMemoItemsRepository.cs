@@ -11,13 +11,34 @@ public class InMemoItemsRepository : IItemsRepository
         new Item { Id = Guid.Parse("501406d6-c810-4bc3-b172-6ce1f311b502"), Name = "Bronze Shield", Price = 18, CreatedDate = DateTimeOffset.UtcNow }
     };
 
-    public IEnumerable<Item> GetItems()
+    public async Task<IEnumerable<Item>> GetItemsAsync()
     {
-        return items;
+        return await Task.FromResult(items);
     }
 
-    public Item? GetItem(Guid id)
+    public async Task<Item?> GetItemAsync(Guid id)
     {
-        return items.SingleOrDefault(i => i.Id == id);
+        var item = items.SingleOrDefault(i => i.Id == id);
+        return await Task.FromResult(item);
+    }
+
+    public async Task CreateItemAsync(Item item)
+    {
+        items.Add(item);
+        await Task.CompletedTask;
+    }
+
+    public async Task UpdateItemAsync(Item item)
+    {
+        var index = items.FindIndex(i => i.Id == item.Id);
+        items[index] = item;
+        await Task.CompletedTask;
+    }
+
+    public async Task DeleteItemAsync(Guid id)
+    {
+        var index = items.FindIndex(i => i.Id == id);
+        items.RemoveAt(index);
+        await Task.CompletedTask;
     }
 }
