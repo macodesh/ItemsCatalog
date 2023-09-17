@@ -1,0 +1,20 @@
+[
+    {
+        "id": "0e503a46-bb3d-4f3b-b01b-cd2665f7c12d",
+        "name": "Potion",
+        "price": 9,
+        "createdDate": "2023-09-17T17:43:16.121Z"
+    },
+    {
+        "id": "2841f26b-aa92-42e1-a86a-1351c6d23d1f",
+        "name": "Iron Sword",
+        "price": 20,
+        "createdDate": "2023-09-17T17:43:16.121Z"
+    },
+    {
+        "id": "501406d6-c810-4bc3-b172-6ce1f311b502d",
+        "name": "Bronze Shield",
+        "price": 18,
+        "createdDate": "2023-09-17T17:43:16.121Z"
+    }
+]
